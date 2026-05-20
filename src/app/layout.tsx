@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces, Anton } from "next/font/google";
 import "./globals.css";
 
 const sans = Inter({
@@ -11,6 +11,12 @@ const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   axes: ["opsz", "SOFT", "WONK"],
+});
+
+const shout = Anton({
+  variable: "--font-shout",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${display.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${shout.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">{children}</body>
     </html>
