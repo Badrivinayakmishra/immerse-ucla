@@ -9,12 +9,18 @@ export function Intro() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("immerse_intro_played")) {
+    const paused = new URLSearchParams(window.location.search).has("paused");
+    if (sessionStorage.getItem("immerse_intro_played") && !paused) {
       setDone(true);
       return;
     }
 
     document.body.style.overflow = "hidden";
+
+    if (paused) {
+      setCount(72);
+      return;
+    }
 
     const start = performance.now();
     const duration = 2200;
@@ -64,17 +70,32 @@ export function Intro() {
         <Asterisk small />
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center px-6">
-        <div className="relative">
-          <h1 className="display text-[clamp(5rem,22vw,22rem)] leading-[0.8] text-cream tracking-tight intro-rise">
-            <span className="block">IMM</span>
-            <span className="block">
-              <span className="text-amber">E</span>
-              <span>RSE</span>
-              <span className="text-orange">.</span>
-            </span>
-          </h1>
-          <span className="absolute -top-6 -right-6 sticker bg-sky text-ink rotate-[8deg]">
+      <div className="absolute inset-0 flex items-center justify-center px-4 md:px-8">
+        <div className="relative w-full intro-rise">
+          <svg
+            viewBox="0 0 1000 230"
+            className="w-full h-auto block"
+            aria-label="IMMERSE"
+            role="img"
+          >
+            <text
+              x="500"
+              y="195"
+              textAnchor="middle"
+              style={{
+                fontFamily: "var(--font-shout), Impact, sans-serif",
+                fontSize: 240,
+                letterSpacing: "-3px",
+              }}
+              fill="var(--color-cream)"
+            >
+              <tspan>IMM</tspan>
+              <tspan fill="var(--color-amber)">E</tspan>
+              <tspan>RSE</tspan>
+              <tspan fill="var(--color-orange)">.</tspan>
+            </text>
+          </svg>
+          <span className="absolute -top-2 right-4 md:-top-4 md:right-8 sticker bg-sky text-ink rotate-[8deg]">
             VR x MD
           </span>
         </div>
