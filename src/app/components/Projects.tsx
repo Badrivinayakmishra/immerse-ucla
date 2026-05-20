@@ -1,3 +1,5 @@
+import { Reveal } from "./Reveal";
+
 type Project = {
   title: string;
   kicker: string;
@@ -12,7 +14,7 @@ type Project = {
 const projects: Project[] = [
   {
     kicker: "Anatomy lab",
-    title: "Cadaver→Cloud",
+    title: "Cadaver to Cloud",
     blurb:
       "A walkthrough VR build of UCLA's anatomy lab specimens, scanned and rebuilt for first-year med students.",
     tag: "Build",
@@ -76,26 +78,39 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-paper py-28 md:py-40 px-6 md:px-10 relative overflow-hidden">
+    <section id="projects" className="bg-paper py-32 md:py-44 px-6 md:px-10 relative overflow-hidden">
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div>
-            <span className="sticker bg-cream">02 — Projects</span>
-            <h2 className="display text-[clamp(2.5rem,6vw,5rem)] mt-6 text-ink max-w-2xl">
-              What we&apos;re <span className="text-forest scribble-underline">shipping</span>.
-            </h2>
-          </div>
-          <p className="md:max-w-sm text-ink/70 text-base">
-            Our quarter-long projects sit at one of three pillars: building tools,
-            studying outcomes, or translating both back to patients.
-          </p>
+          <Reveal>
+            <div>
+              <span className="sticker bg-cream">02 / Projects</span>
+              <h2 className="display text-[clamp(2.75rem,6.5vw,5.5rem)] mt-6 text-ink max-w-2xl leading-[0.92]">
+                What we&apos;re <span className="text-forest scribble-underline">shipping</span>.
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <p className="md:max-w-sm text-ink/70 text-base">
+              Our quarter-long projects sit at one of three pillars: building
+              tools, studying outcomes, or translating both back to patients.
+            </p>
+          </Reveal>
         </div>
 
-        <FeaturedCallout />
+        <Reveal direction="scale" delay={100}>
+          <FeaturedCallout />
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {projects.map((p) => (
-            <Card key={p.title} {...p} />
+          {projects.map((p, i) => (
+            <Reveal
+              key={p.title}
+              direction="up"
+              delay={i * 90}
+              amount={70}
+            >
+              <Card {...p} />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -119,8 +134,9 @@ function FeaturedCallout() {
           <span className="text-amber">Suture</span> Sandbox.
         </h3>
         <p className="text-paper/80 text-sm md:text-base mt-3 max-w-xl">
-          A haptic VR suturing trainer scored on tension, angle, and consistency.
-          Built in 8 weeks by 4 undergrads. Demoing at the UCLA Datafest.
+          A haptic VR suturing trainer scored on tension, angle, and
+          consistency. Built in 8 weeks by 4 undergrads. Demoing at UCLA
+          Datafest.
         </p>
       </div>
       <div className="md:col-span-3 flex md:justify-end">

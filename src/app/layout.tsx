@@ -14,7 +14,7 @@ const display = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "IMMERSE — VR + Medicine at UCLA",
+  title: "IMMERSE · VR + Medicine at UCLA",
   description:
     "A UCLA student org exploring immersive technology in healthcare, biomedical research, and clinical training.",
 };
