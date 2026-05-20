@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export function ScrollChoreography() {
   useEffect(() => {
     const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("main > section")
+      document.querySelectorAll<HTMLElement>("main .stage > section, main > section")
     );
     if (sections.length === 0) return;
 
