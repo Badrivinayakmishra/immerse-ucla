@@ -9,6 +9,14 @@ type Props = {
   accentColor?: string;
 };
 
+const shoutStyle = {
+  fontFamily: "var(--font-shout), Impact, sans-serif",
+  fontWeight: 400,
+  textTransform: "uppercase" as const,
+  letterSpacing: "-0.005em",
+  lineHeight: 0.86,
+};
+
 export function Manifesto({
   bg,
   textColor,
@@ -28,7 +36,7 @@ export function Manifesto({
           </Reveal>
         )}
         <Reveal direction="up" amount={90}>
-          <h2 className="shout text-[clamp(4.5rem,18vw,18rem)]">
+          <h2 className="text-[clamp(4.5rem,17vw,17rem)]" style={shoutStyle}>
             {lines.map((line, i) => {
               if (accentWord && line.includes(accentWord)) {
                 const parts = line.split(accentWord);

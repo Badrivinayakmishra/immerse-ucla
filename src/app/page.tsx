@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { Marquee } from "./components/Marquee";
 import { About } from "./components/About";
 import { Manifesto } from "./components/Manifesto";
+import { MegaShout } from "./components/MegaShout";
 import { GraphicBreak } from "./components/GraphicBreak";
 import { Projects } from "./components/Projects";
 import { Team } from "./components/Team";
@@ -50,6 +51,16 @@ export default function Home() {
           accentColor="var(--forest)"
         />
         <Team />
+        <MegaShout
+          bg="bg-forest"
+          textColor="text-cream"
+          align="left"
+          lines={[
+            "Put it on.",
+            "See the body.",
+            "Never unsee it.",
+          ]}
+        />
         <Join />
       </main>
       <Footer />
