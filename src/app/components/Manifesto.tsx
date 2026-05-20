@@ -26,17 +26,17 @@ export function Manifesto({
   accentColor,
 }: Props) {
   return (
-    <section className={`${bg} ${textColor} border-y-2 border-ink py-28 md:py-40 px-6 md:px-10`}>
-      <div className="mx-auto max-w-7xl flex flex-col items-center text-center">
+    <section className={`${bg} ${textColor} border-y-2 border-ink py-24 md:py-32 px-6 md:px-10`}>
+      <div className="mx-auto max-w-4xl flex flex-col items-center text-center">
         {kicker && (
           <Reveal>
-            <span className="text-[11px] uppercase tracking-[0.35em] opacity-70 mb-8 block">
+            <span className="text-[11px] uppercase tracking-[0.35em] opacity-70 mb-6 block">
               {kicker}
             </span>
           </Reveal>
         )}
-        <Reveal direction="up" amount={90}>
-          <h2 className="text-[clamp(4.5rem,17vw,17rem)]" style={shoutStyle}>
+        <Reveal direction="up" amount={60}>
+          <h2 className="text-[clamp(2.5rem,7vw,7rem)]" style={shoutStyle}>
             {lines.map((line, i) => {
               if (accentWord && line.includes(accentWord)) {
                 const parts = line.split(accentWord);
