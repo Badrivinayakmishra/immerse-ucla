@@ -5,6 +5,8 @@ type Project = {
   tag: string;
   color: string;
   textColor?: string;
+  rotate: string;
+  emoji: string;
 };
 
 const projects: Project[] = [
@@ -15,6 +17,8 @@ const projects: Project[] = [
       "A walkthrough VR build of UCLA's anatomy lab specimens, scanned and rebuilt for first-year med students.",
     tag: "Build",
     color: "bg-sky",
+    rotate: "rotate-[-1.5deg]",
+    emoji: "🫀",
   },
   {
     kicker: "Surgical sim",
@@ -23,6 +27,8 @@ const projects: Project[] = [
       "Haptic-glove suturing practice scored on tension, angle, and consistency. Built with the Meta Quest 3 SDK.",
     tag: "Build",
     color: "bg-amber",
+    rotate: "rotate-[1deg]",
+    emoji: "🧵",
   },
   {
     kicker: "Research",
@@ -32,6 +38,8 @@ const projects: Project[] = [
     tag: "Study",
     color: "bg-forest",
     textColor: "text-cream",
+    rotate: "rotate-[-1deg]",
+    emoji: "🧠",
   },
   {
     kicker: "Outreach",
@@ -41,6 +49,8 @@ const projects: Project[] = [
     tag: "Translate",
     color: "bg-orange",
     textColor: "text-paper",
+    rotate: "rotate-[2deg]",
+    emoji: "🏥",
   },
   {
     kicker: "Workshop series",
@@ -49,21 +59,25 @@ const projects: Project[] = [
       "Weekly hands-on session: build a working WebXR scene in 60 minutes. No prior 3D experience required.",
     tag: "Build",
     color: "bg-lime",
+    rotate: "rotate-[-2deg]",
+    emoji: "🥽",
   },
   {
     kicker: "Publication",
-    title: "The Headset Journal",
+    title: "Headset Journal",
     blurb:
       "Undergraduate-run quarterly summarizing recent literature at the intersection of medicine and immersive computing.",
     tag: "Study",
     color: "bg-cream",
+    rotate: "rotate-[1.5deg]",
+    emoji: "📓",
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-paper py-28 md:py-40 px-6 md:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section id="projects" className="bg-paper py-28 md:py-40 px-6 md:px-10 relative overflow-hidden">
+      <div className="mx-auto max-w-7xl relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <span className="sticker bg-cream">02 — Projects</span>
@@ -77,7 +91,9 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <FeaturedCallout />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {projects.map((p) => (
             <Card key={p.title} {...p} />
           ))}
@@ -87,15 +103,48 @@ export function Projects() {
   );
 }
 
-function Card({ title, kicker, blurb, tag, color, textColor }: Project) {
+function FeaturedCallout() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-ink text-paper border-2 border-ink rounded-3xl p-7 md:p-10 shadow-[8px_8px_0_var(--color-forest)] rotate-[-0.5deg]">
+      <div className="md:col-span-3 flex items-center gap-3">
+        <span className="bg-orange text-ink rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-widest border-2 border-paper">
+          ★ Featured
+        </span>
+      </div>
+      <div className="md:col-span-6">
+        <div className="text-[11px] uppercase tracking-widest text-amber font-semibold mb-1">
+          Demo of the quarter
+        </div>
+        <h3 className="display text-4xl md:text-5xl">
+          <span className="text-amber">Suture</span> Sandbox.
+        </h3>
+        <p className="text-paper/80 text-sm md:text-base mt-3 max-w-xl">
+          A haptic VR suturing trainer scored on tension, angle, and consistency.
+          Built in 8 weeks by 4 undergrads. Demoing at the UCLA Datafest.
+        </p>
+      </div>
+      <div className="md:col-span-3 flex md:justify-end">
+        <a
+          href="#join"
+          className="inline-flex items-center gap-2 rounded-full bg-amber text-ink px-5 py-2.5 text-sm font-bold uppercase tracking-wider hover:bg-paper transition-colors"
+        >
+          Try it ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function Card({ title, kicker, blurb, tag, color, textColor, rotate, emoji }: Project) {
   return (
     <article
-      className={`group ${color} ${textColor ?? "text-ink"} border-2 border-ink rounded-3xl p-7 flex flex-col gap-6 min-h-[280px] shadow-[6px_6px_0_var(--color-ink)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0_var(--color-ink)] transition-all`}
+      className={`group ${color} ${textColor ?? "text-ink"} border-2 border-ink rounded-3xl p-7 flex flex-col gap-5 min-h-[290px] shadow-[6px_6px_0_var(--color-ink)] ${rotate} hover:rotate-0 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0_var(--color-ink)] transition-all`}
     >
       <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-widest opacity-80">
         <span>{kicker}</span>
         <span className="border-2 border-current rounded-full px-2 py-0.5">{tag}</span>
       </div>
+      <div className="text-5xl" aria-hidden>{emoji}</div>
       <h3 className="display text-4xl md:text-5xl leading-none">{title}</h3>
       <p className="text-sm md:text-base leading-relaxed opacity-90 mt-auto">
         {blurb}
