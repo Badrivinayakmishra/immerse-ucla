@@ -5,14 +5,29 @@ import { Reveal } from "./Reveal";
 export function Footer() {
   return (
     <footer className="bg-orange text-forest relative overflow-hidden">
-      <div className="px-6 md:px-10 pt-24 md:pt-28">
+      <div className="px-4 md:px-6 pt-20 md:pt-24 overflow-hidden">
         <Reveal direction="up" amount={120}>
-          <h2
-            className="shout text-[clamp(6rem,28vw,28rem)] leading-[0.78] -tracking-[0.01em] text-forest text-center select-none"
-            aria-hidden
+          <svg
+            viewBox="0 0 1000 220"
+            className="w-full h-auto block"
+            aria-label="IMMERSE"
+            role="img"
           >
-            IMMERSE<span className="text-ink">.</span>
-          </h2>
+            <text
+              x="500"
+              y="190"
+              textAnchor="middle"
+              className="shout"
+              style={{
+                fontFamily: "var(--font-shout), Impact, sans-serif",
+                fontSize: 230,
+                letterSpacing: "-2px",
+              }}
+              fill="var(--color-forest)"
+            >
+              IMMERSE<tspan fill="var(--color-ink)">.</tspan>
+            </text>
+          </svg>
         </Reveal>
       </div>
 
