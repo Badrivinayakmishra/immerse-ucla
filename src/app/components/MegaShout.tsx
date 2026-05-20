@@ -1,4 +1,4 @@
-import { Reveal } from "./Reveal";
+import { RevealWords } from "./RevealWords";
 
 type Props = {
   bg: string;
@@ -21,20 +21,14 @@ export function MegaShout({ bg, textColor, lines, align = "left" }: Props) {
     <section className={`${bg} ${textColor} border-y-2 border-ink min-h-screen flex flex-col justify-center px-6 md:px-12 py-20 overflow-hidden`}>
       <div className={`w-full max-w-[1600px] mx-auto flex flex-col ${alignment}`}>
         {lines.map((line, i) => (
-          <Reveal
+          <RevealWords
             key={`${line}-${i}`}
-            direction="up"
-            amount={120}
-            delay={i * 120}
-            className="w-full"
-          >
-            <h2
-              className="text-[clamp(3.5rem,13.5vw,13.5rem)] break-words"
-              style={shoutStyle}
-            >
-              {line}
-            </h2>
-          </Reveal>
+            text={line}
+            className="text-[clamp(3.5rem,13.5vw,13.5rem)] break-words"
+            style={shoutStyle}
+            startDelay={i * 220}
+            perWordDelay={90}
+          />
         ))}
       </div>
     </section>

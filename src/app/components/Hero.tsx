@@ -1,5 +1,6 @@
 import { HeroIllustration } from "./HeroIllustration";
 import { Reveal } from "./Reveal";
+import { Parallax } from "./Parallax";
 
 export function Hero() {
   return (
@@ -54,11 +55,13 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-5 relative">
-          <Reveal direction="scale" delay={250}>
-            <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-              <HeroIllustration />
-            </div>
-          </Reveal>
+          <Parallax speed={0.12}>
+            <Reveal direction="scale" delay={250}>
+              <div className="relative rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+                <HeroIllustration />
+              </div>
+            </Reveal>
+          </Parallax>
 
           <Reveal direction="left" delay={650}>
             <div className="absolute -top-4 -left-6 rotate-[-8deg] z-20 hidden md:block">
