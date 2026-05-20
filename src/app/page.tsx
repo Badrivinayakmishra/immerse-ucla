@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { Marquee } from "./components/Marquee";
 import { About } from "./components/About";
 import { Manifesto } from "./components/Manifesto";
+import { GraphicBreak } from "./components/GraphicBreak";
 import { Projects } from "./components/Projects";
 import { Team } from "./components/Team";
 import { Join } from "./components/Join";
@@ -26,7 +27,20 @@ export default function Home() {
           accentWord="3D"
           accentColor="var(--orange)"
         />
+        <GraphicBreak
+          bg="bg-sky"
+          markColor="var(--color-ink)"
+          mark="headset"
+          caption="Put it on."
+        />
         <Projects />
+        <GraphicBreak
+          bg="bg-orange"
+          markColor="var(--color-paper)"
+          mark="cross"
+          caption="Medicine, in three dimensions."
+          captionColor="text-paper/80"
+        />
         <Manifesto
           bg="bg-amber"
           textColor="text-ink"
