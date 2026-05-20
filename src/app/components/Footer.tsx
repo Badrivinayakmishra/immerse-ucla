@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "./asset";
 
 export function Footer() {
   return (
@@ -6,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-end md:justify-between gap-10">
         <div>
           <Image
-            src="/logo.png"
+            src={asset("/logo.png")}
             alt="IMMERSE"
             width={180}
             height={54}

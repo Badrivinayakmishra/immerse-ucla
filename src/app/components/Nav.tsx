@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { asset } from "./asset";
 
 export function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-10 py-5">
       <a href="#top" className="flex items-center gap-3">
-        <Image src="/logo.png" alt="IMMERSE" width={140} height={42} priority className="h-9 w-auto" />
+        <Image src={asset("/logo.png")} alt="IMMERSE" width={140} height={42} priority className="h-9 w-auto" />
       </a>
       <ul className="hidden md:flex items-center gap-7 text-[13px] font-medium uppercase tracking-wider">
         <li><a href="#about" className="hover:text-orange transition-colors">About</a></li>
