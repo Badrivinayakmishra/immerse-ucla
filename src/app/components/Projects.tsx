@@ -7,7 +7,7 @@ type Project = {
   tag: string;
   color: string;
   textColor?: string;
-  rotate: string;
+  rotateDeg: number;
   emoji: string;
 };
 
@@ -19,7 +19,7 @@ const projects: Project[] = [
       "A walkthrough VR build of UCLA's anatomy lab specimens, scanned and rebuilt for first-year med students.",
     tag: "Build",
     color: "bg-sky",
-    rotate: "rotate-[-1.5deg]",
+    rotateDeg: -1.5,
     emoji: "🫀",
   },
   {
@@ -29,7 +29,7 @@ const projects: Project[] = [
       "Haptic-glove suturing practice scored on tension, angle, and consistency. Built with the Meta Quest 3 SDK.",
     tag: "Build",
     color: "bg-amber",
-    rotate: "rotate-[1deg]",
+    rotateDeg: 1,
     emoji: "🧵",
   },
   {
@@ -40,7 +40,7 @@ const projects: Project[] = [
     tag: "Study",
     color: "bg-forest",
     textColor: "text-cream",
-    rotate: "rotate-[-1deg]",
+    rotateDeg: -1,
     emoji: "🧠",
   },
   {
@@ -51,7 +51,7 @@ const projects: Project[] = [
     tag: "Translate",
     color: "bg-orange",
     textColor: "text-paper",
-    rotate: "rotate-[2deg]",
+    rotateDeg: 2,
     emoji: "🏥",
   },
   {
@@ -61,7 +61,7 @@ const projects: Project[] = [
       "Weekly hands-on session: build a working WebXR scene in 60 minutes. No prior 3D experience required.",
     tag: "Build",
     color: "bg-lime",
-    rotate: "rotate-[-2deg]",
+    rotateDeg: -2,
     emoji: "🥽",
   },
   {
@@ -71,7 +71,7 @@ const projects: Project[] = [
       "Undergraduate-run quarterly summarizing recent literature at the intersection of medicine and immersive computing.",
     tag: "Study",
     color: "bg-cream",
-    rotate: "rotate-[1.5deg]",
+    rotateDeg: 1.5,
     emoji: "📓",
   },
 ];
@@ -102,15 +102,8 @@ export function Projects() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {projects.map((p, i) => (
-            <Reveal
-              key={p.title}
-              direction="up"
-              delay={i * 90}
-              amount={70}
-            >
-              <Card {...p} />
-            </Reveal>
+          {projects.map((p) => (
+            <Card key={p.title} {...p} />
           ))}
         </div>
       </div>
@@ -151,10 +144,13 @@ function FeaturedCallout() {
   );
 }
 
-function Card({ title, kicker, blurb, tag, color, textColor, rotate, emoji }: Project) {
+function Card({ title, kicker, blurb, tag, color, textColor, rotateDeg, emoji }: Project) {
   return (
     <article
-      className={`group ${color} ${textColor ?? "text-ink"} border-2 border-ink rounded-3xl p-7 flex flex-col gap-5 min-h-[290px] shadow-[6px_6px_0_var(--color-ink)] ${rotate} hover:rotate-0 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0_var(--color-ink)] transition-all`}
+      className={`project-card magnet group ${color} ${textColor ?? "text-ink"} border-2 border-ink rounded-3xl p-7 flex flex-col gap-5 min-h-[290px] shadow-[6px_6px_0_var(--color-ink)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0_var(--color-ink)] transition-shadow`}
+      data-final-rotation={rotateDeg}
+      data-cursor="open"
+      style={{ transform: `rotate(${rotateDeg}deg)` }}
     >
       <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-widest opacity-80">
         <span>{kicker}</span>

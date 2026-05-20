@@ -125,20 +125,22 @@ body {
   to { transform: scaleX(1); }
 }
 
-.stage > section {
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  height: 100vh;
-  isolation: isolate;
+.has-magnetic-cursor,
+.has-magnetic-cursor a,
+.has-magnetic-cursor button {
+  cursor: none;
+}
+
+.magnetic-ring,
+.magnetic-dot,
+.magnetic-label {
+  will-change: transform;
+}
+
+main section {
   overflow: hidden;
   transform-origin: center top;
   contain: layout paint;
-  transform: translateZ(0);
-}
-
-main > section:not(.stage > section) {
-  position: relative;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -146,8 +148,8 @@ main > section:not(.stage > section) {
   .spin-slow, .spin-slow-rev { animation: none; }
   .intro-rise > span { animation: none; opacity: 1; transform: none; }
   .intro-wipe { animation: introWipeReduced 0.3s linear forwards; }
-  .stage { height: auto !important; }
-  .stage > section { position: relative; min-height: auto; height: auto; }
+  main section { position: relative; height: auto; }
+  .magnetic-ring, .magnetic-dot, .magnetic-label { display: none; }
 }
 @keyframes introWipeReduced {
   to { opacity: 0; visibility: hidden; }

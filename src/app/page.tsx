@@ -1,7 +1,9 @@
 import { Intro } from "./components/Intro";
-import { SmoothScroll } from "./components/SmoothScroll";
-import { ScrollChoreography } from "./components/ScrollChoreography";
-import { Stage } from "./components/Stage";
+import { MotionEngine } from "./components/MotionEngine";
+import { MagneticCursor } from "./components/MagneticCursor";
+import { HeroNarrative } from "./components/HeroNarrative";
+import { CardStackProjects } from "./components/CardStackProjects";
+import { ScrubSection } from "./components/ScrubSection";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Marquee } from "./components/Marquee";
@@ -16,19 +18,21 @@ import { Footer } from "./components/Footer";
 export default function Home() {
   return (
     <>
-      <SmoothScroll />
-      <ScrollChoreography />
+      <MotionEngine />
+      <MagneticCursor />
+      <HeroNarrative />
+      <CardStackProjects />
       <Intro />
       <Nav />
       <main>
-        <Stage dwell={1.4}>
+        <ScrubSection dwell={1.2}>
           <Hero />
-        </Stage>
+        </ScrubSection>
         <Marquee />
-        <Stage dwell={1.4}>
+        <ScrubSection dwell={1.3}>
           <About />
-        </Stage>
-        <Stage dwell={0.9}>
+        </ScrubSection>
+        <ScrubSection dwell={0.7}>
           <Manifesto
             bg="bg-paper"
             textColor="text-ink"
@@ -37,19 +41,19 @@ export default function Home() {
             accentWord="3D"
             accentColor="var(--orange)"
           />
-        </Stage>
-        <Stage dwell={1.2}>
+        </ScrubSection>
+        <ScrubSection dwell={1.0}>
           <GraphicBreak
             bg="bg-sky"
             markColor="var(--color-ink)"
             mark="headset"
             caption="Put it on."
           />
-        </Stage>
-        <Stage dwell={1.8}>
+        </ScrubSection>
+        <ScrubSection dwell={1.6}>
           <Projects />
-        </Stage>
-        <Stage dwell={1.2}>
+        </ScrubSection>
+        <ScrubSection dwell={1.0}>
           <GraphicBreak
             bg="bg-orange"
             markColor="var(--color-paper)"
@@ -57,8 +61,8 @@ export default function Home() {
             caption="Medicine, in three dimensions."
             captionColor="text-paper/80"
           />
-        </Stage>
-        <Stage dwell={0.9}>
+        </ScrubSection>
+        <ScrubSection dwell={0.7}>
           <Manifesto
             bg="bg-amber"
             textColor="text-ink"
@@ -67,13 +71,13 @@ export default function Home() {
             accentWord="Translate."
             accentColor="var(--forest)"
           />
-        </Stage>
-        <Stage dwell={1.4}>
+        </ScrubSection>
+        <ScrubSection dwell={1.3}>
           <Team />
-        </Stage>
-        <Stage dwell={1.2}>
+        </ScrubSection>
+        <ScrubSection dwell={1.0} recede={false}>
           <Join />
-        </Stage>
+        </ScrubSection>
       </main>
       <Footer />
     </>
