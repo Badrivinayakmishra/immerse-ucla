@@ -125,11 +125,24 @@ body {
   to { transform: scaleX(1); }
 }
 
+main > section {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+main > section[data-no-stick] {
+  position: static;
+  min-height: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee, .marquee-reverse { animation: none; }
   .spin-slow, .spin-slow-rev { animation: none; }
   .intro-rise > span { animation: none; opacity: 1; transform: none; }
   .intro-wipe { animation: introWipeReduced 0.3s linear forwards; }
+  main > section { position: static; min-height: auto; }
 }
 @keyframes introWipeReduced {
   to { opacity: 0; visibility: hidden; }

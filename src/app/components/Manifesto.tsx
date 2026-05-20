@@ -26,8 +26,8 @@ export function Manifesto({
   accentColor,
 }: Props) {
   return (
-    <section className={`${bg} ${textColor} border-y-2 border-ink py-24 md:py-32 px-6 md:px-10`}>
-      <div className="mx-auto max-w-4xl flex flex-col items-center text-center">
+    <section className={`${bg} ${textColor} border-y-2 border-ink py-24 md:py-32 px-6 md:px-10 flex items-center justify-center`}>
+      <div className="mx-auto max-w-4xl w-full flex flex-col items-center text-center">
         {kicker && (
           <Reveal>
             <span className="text-[11px] uppercase tracking-[0.35em] opacity-70 mb-6 block">
