@@ -1,5 +1,6 @@
 import { Intro } from "./components/Intro";
 import { SmoothScroll } from "./components/SmoothScroll";
+import { ScrollChoreography } from "./components/ScrollChoreography";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Marquee } from "./components/Marquee";
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <SmoothScroll />
+      <ScrollChoreography />
       <Intro />
       <Nav />
       <main>

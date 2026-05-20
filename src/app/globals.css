@@ -130,6 +130,8 @@ main > section {
   top: 0;
   min-height: 100vh;
   isolation: isolate;
+  will-change: transform, filter, opacity, border-radius;
+  transition: transform 80ms linear;
 }
 
 main > section[data-no-stick] {
