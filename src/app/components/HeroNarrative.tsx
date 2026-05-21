@@ -47,9 +47,11 @@ export function HeroNarrative() {
       gsap.set(heart, { scale: 0, rotation: -20 });
       gsap.set(microscope, { scale: 0, rotation: 20 });
 
+      const heroSection = svg.closest("section") || document.querySelector("#top");
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".hero-stage",
+          trigger: heroSection,
           start: "top top",
           end: () => `+=${window.innerHeight * 0.9}`,
           scrub: 0.6,

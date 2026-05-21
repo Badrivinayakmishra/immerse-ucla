@@ -125,22 +125,8 @@ body {
   to { transform: scaleX(1); }
 }
 
-.has-magnetic-cursor,
-.has-magnetic-cursor a,
-.has-magnetic-cursor button {
-  cursor: none;
-}
-
-.magnetic-ring,
-.magnetic-dot,
-.magnetic-label {
-  will-change: transform;
-}
-
-main section {
-  overflow: hidden;
-  transform-origin: center top;
-  contain: layout paint;
+main > section {
+  position: relative;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -148,8 +134,6 @@ main section {
   .spin-slow, .spin-slow-rev { animation: none; }
   .intro-rise > span { animation: none; opacity: 1; transform: none; }
   .intro-wipe { animation: introWipeReduced 0.3s linear forwards; }
-  main section { position: relative; height: auto; }
-  .magnetic-ring, .magnetic-dot, .magnetic-label { display: none; }
 }
 @keyframes introWipeReduced {
   to { opacity: 0; visibility: hidden; }
