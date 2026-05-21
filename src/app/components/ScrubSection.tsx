@@ -8,10 +8,17 @@ type Props = {
   children: ReactNode;
   dwell?: number;
   recede?: boolean;
+  bg?: string;
   className?: string;
 };
 
-export function ScrubSection({ children, dwell = 1.4, recede = true, className = "" }: Props) {
+export function ScrubSection({
+  children,
+  dwell = 1.0,
+  recede = true,
+  bg = "bg-paper",
+  className = "",
+}: Props) {
   const outerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,18 +47,18 @@ export function ScrubSection({ children, dwell = 1.4, recede = true, className =
         recedeTl = gsap.timeline({
           scrollTrigger: {
             trigger: outer,
-            start: () => `top top-=${distance() * 0.65}`,
+            start: () => `top top-=${distance() * 0.55}`,
             end: () => `top top-=${distance()}`,
-            scrub: 0.6,
+            scrub: 0.4,
             invalidateOnRefresh: true,
           },
         });
         recedeTl.to(inner, {
-          scale: 0.9,
-          opacity: 0.55,
-          borderRadius: 28,
-          y: -20,
-          ease: "none",
+          scale: 0.94,
+          opacity: 0.75,
+          borderRadius: 20,
+          ease: "power2.in",
+          force3D: true,
         });
       }
     }, outerRef);
@@ -63,5 +70,13 @@ export function ScrubSection({ children, dwell = 1.4, recede = true, className =
     };
   }, [dwell, recede]);
 
-  return <div ref={outerRef} className={className}>{children}</div>;
+  return (
+    <div
+      ref={outerRef}
+      className={`${bg} ${className} relative`}
+      style={{ overflow: "hidden" }}
+    >
+      {children}
+    </div>
+  );
 }
