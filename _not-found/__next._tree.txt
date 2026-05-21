@@ -1,2 +1,2 @@
-:HL["/immerse-ucla/_next/static/chunks/10c3z~ezu6o.p.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Fjc7XFx-s5NrwU3jZd6_Q"}
+:HL["/immerse-ucla/_next/static/chunks/0.fl.rqc_dnxa.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"fl24p3DeqRorpF958bged"}
