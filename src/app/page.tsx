@@ -32,16 +32,6 @@ export default function Home() {
         <ScrubSection dwell={1.3}>
           <About />
         </ScrubSection>
-        <ScrubSection dwell={0.7}>
-          <Manifesto
-            bg="bg-paper"
-            textColor="text-ink"
-            kicker="Our promise"
-            lines={["Medicine", "in 3D."]}
-            accentWord="3D"
-            accentColor="var(--orange)"
-          />
-        </ScrubSection>
         <ScrubSection dwell={1.0}>
           <GraphicBreak
             bg="bg-sky"
@@ -53,16 +43,7 @@ export default function Home() {
         <ScrubSection dwell={1.6}>
           <Projects />
         </ScrubSection>
-        <ScrubSection dwell={1.0}>
-          <GraphicBreak
-            bg="bg-orange"
-            markColor="var(--color-paper)"
-            mark="cross"
-            caption="Medicine, in three dimensions."
-            captionColor="text-paper/80"
-          />
-        </ScrubSection>
-        <ScrubSection dwell={0.7}>
+        <ScrubSection dwell={0.8}>
           <Manifesto
             bg="bg-amber"
             textColor="text-ink"
